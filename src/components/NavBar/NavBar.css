@@ -14,7 +14,9 @@ body {
 h1 {
   font-size: 3.5rem;
   margin-left: 4rem;
+  
 }
+
 a{
   text-decoration: none;
   color: black;
@@ -23,6 +25,7 @@ a{
 .Bg-Nav {
   background-color: cadetblue;
   width: 100%;
+  padding: 2rem;
 }
 
 .NavBarSuperior {
@@ -38,8 +41,11 @@ a{
   justify-content: center;
 }
 
-ul li {
+.Link{
   padding: 2rem;
   list-style: none;
   margin-bottom: 1rem;
+}
+.title{
+  color: black
 }
