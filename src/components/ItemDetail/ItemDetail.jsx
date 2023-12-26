@@ -4,7 +4,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
-const ItemContainer = ({juego}) => {
+const ItemDetail = ({juego}) => {
     const {nombre, precio, descripcion, imagen} = juego
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -30,4 +30,4 @@ const ItemContainer = ({juego}) => {
     </Card>
   );
 }
-export default ItemContainer
+export default ItemDetail

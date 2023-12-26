@@ -1,20 +1,11 @@
-/* eslint-disable no-unused-vars */
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import ItemDetailcontainer from "../../components/ItemDetailContainer/ItemDetailcontainer"
 
 const DetailPage = () => {
-  const [ juegos, setJuegos ] = useState({});
+  return (
+    <div>
+      <ItemDetailcontainer/>
+    </div>
+  )
+}
 
-  const { id } = useParams();
-
-  useEffect(() => {
-    axios("apiJuegos.json").then((resp) => console.log(resp.data));
-  }, []);
-
-  return <div>
-
-  </div>;
-};
-
-export default DetailPage;
+export default DetailPage
