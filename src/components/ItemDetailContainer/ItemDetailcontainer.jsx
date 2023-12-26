@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
+import "./ItemDetailcontainer.css"
 
 const ItemDetailcontainer = () => {
   const [juegos, setJuegos] = useState([]);
@@ -12,13 +13,14 @@ const ItemDetailcontainer = () => {
     axios("../apiJuegos.json").then((resp) => setJuegos(resp.data));
   }, [id]);
 
-//   {juegos.find((juego) => {
-//     console.log(juego.id === id)
-//   })}
+  const juego = juegos.find((juego) => {
+    return(
+      juego.id == id
+    )
+  })
 
-  
-  return <div>
-    
+  return <div className="ItemDetail">
+   {juego ? <ItemDetail juego={juego}/> : null}
   </div>;
 };
 
