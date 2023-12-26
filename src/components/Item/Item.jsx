@@ -3,6 +3,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import ItemCount from '../ItemCount/ItemCount';
 
 const Item = ({juego}) => {
     const {nombre, precio, descripcion, imagen} = juego
@@ -27,6 +28,7 @@ const Item = ({juego}) => {
           </Typography>
         </CardContent>
       </CardActionArea>
+      <ItemCount initial={1} stock={10} onAdd={(quantity) => console.log(`cantidad agregada ${quantity}`)}/>
     </Card>
   );
 }
