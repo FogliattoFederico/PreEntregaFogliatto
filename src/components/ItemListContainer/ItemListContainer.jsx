@@ -5,16 +5,20 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 import ItemList from "../ItemList/ItemList";
-import Item from "../Item/Item";
 
 const ItemListContainer = ({ greeting }) => {
   const [juegos, setJuegos] = useState([]);
   let { categoryId } = useParams();
 
   useEffect(() => {
-    axios("../apiJuegos.json").then((resp) => setJuegos(resp.data));
-  }, []);
-  
+    axios("../apiJuegos.json").then((resp) =>
+      setJuegos(
+        categoryId ? resp.data.filter((juego) => juego.genero == categoryId) : resp.data
+      )
+    );
+  }, [categoryId]);
+
+ console.log(categoryId)
   return (
     <div>
       <h1 className="ItemListContainer">{greeting}</h1>
