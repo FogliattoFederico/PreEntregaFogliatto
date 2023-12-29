@@ -4,11 +4,11 @@ import "./App.css";
 //COMPONENTES
 import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import ItemDetailcontainer from "./components/ItemDetailContainer/ItemDetailcontainer";
 
 //PAGES
 
 import ErrorPage from "./Pages/ErrorPage/ErrorPage";
-import DetailPage from "./Pages/DetailPage/DetailPage";
 import CategoryPage from "./Pages/CategoryPage/CategoryPage";
 
 //REACT ROUTER DOM
@@ -25,7 +25,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<ItemListContainer greeting="Bienvenido a nuestro sitio...." />} />
           <Route path="*" element={<ErrorPage />} />
-          <Route path="/Detail/:id" element={<DetailPage />} />
+          <Route path="/Detail/:id" element={<ItemDetailcontainer />} />
           <Route path="/Category/:categoryId" element={<CategoryPage />} />
         </Routes>
       </div>

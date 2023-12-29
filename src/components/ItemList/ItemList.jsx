@@ -8,9 +8,9 @@ const ItemList = ({juegos}) => {
       {juegos.map((juego) => {
           return (
             <div key={juego.id} className="">
-              <Link to={`/detail/${juego.id}`}>
+              {/* <Link to={`/detail/${juego.id}`}> */}
               <Item juego={juego} />
-              </Link>
+              {/* </Link> */}
             </div>
           );
         })}

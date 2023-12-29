@@ -28,7 +28,7 @@ const ItemDetail = ({juego}) => {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <ItemCount initial={1} stock={10} onAdd={(quantity) => console.log(`cantidad agregada ${quantity}`)}/>
+      <ItemCount initial={1} stock={10} onAdd={(quantity) => alert(`cantidad agregada ${quantity}`)}/>
     </Card>
   );
 }

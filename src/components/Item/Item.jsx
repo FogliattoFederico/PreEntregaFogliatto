@@ -2,20 +2,23 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import { Alert, CardActionArea } from '@mui/material';
 import ItemCount from '../ItemCount/ItemCount';
+import { Link } from 'react-router-dom';
 
 const Item = ({juego}) => {
     const {nombre, precio, descripcion, imagen} = juego
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
+        <Link to={`/detail/${juego.id}`}>
         <CardMedia
           component="img"
           height="auto"
           image={imagen}
           alt="green iguana"
-        />
+          />
+          </Link>
         <CardContent>
           <Typography gutterBottom variant="h4" component="div">
             {nombre}
@@ -28,7 +31,7 @@ const Item = ({juego}) => {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <ItemCount initial={1} stock={10} onAdd={(quantity) => console.log(`cantidad agregada ${quantity}`)}/>
+      <ItemCount initial={1} stock={10} onAdd={(quantity) => alert(`cantidad agregada ${quantity}`)}/>
     </Card>
   );
 }
