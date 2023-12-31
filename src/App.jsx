@@ -23,7 +23,10 @@ const App = () => {
           <NavBar />
         </nav>
         <Routes>
-          <Route path="/" element={<ItemListContainer greeting="Bienvenido a nuestro sitio...." />} />
+          <Route path="/" element={<ItemListContainer>
+            <h1 style={{marginBottom : "40px"}}>Bienvenido a POWER GAMES</h1>
+            <h5>Aqui encontraras los ultimos lanzamientos para todas las plataformas</h5>
+          </ItemListContainer>} />
           <Route path="/Detail/:id" element={<ItemDetailcontainer />} />
           <Route path="/Category/:categoryId" element={<ItemListContainer />} />
           <Route path="*" element={<ErrorPage />} />
