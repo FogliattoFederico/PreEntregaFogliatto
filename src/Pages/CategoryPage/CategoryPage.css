@@ -1,7 +1,0 @@
-.Contenedor-Juegos-Categoria{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-items: center;
-    gap: 30px;
-    margin-top: 40px;
-}

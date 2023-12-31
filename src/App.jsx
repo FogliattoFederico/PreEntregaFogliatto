@@ -9,7 +9,7 @@ import ItemDetailcontainer from "./components/ItemDetailContainer/ItemDetailcont
 //PAGES
 
 import ErrorPage from "./Pages/ErrorPage/ErrorPage";
-import CategoryPage from "./Pages/CategoryPage/CategoryPage";
+
 
 //REACT ROUTER DOM
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -24,9 +24,9 @@ const App = () => {
         </nav>
         <Routes>
           <Route path="/" element={<ItemListContainer greeting="Bienvenido a nuestro sitio...." />} />
-          <Route path="*" element={<ErrorPage />} />
           <Route path="/Detail/:id" element={<ItemDetailcontainer />} />
-          <Route path="/Category/:categoryId" element={<ItemDetailcontainer />} />
+          <Route path="/Category/:categoryId" element={<ItemListContainer />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </div>
     </Router>

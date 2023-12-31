@@ -13,16 +13,17 @@ const ItemListContainer = ({ greeting }) => {
   useEffect(() => {
     axios("../apiJuegos.json").then((resp) =>
       setJuegos(
-        categoryId ? resp.data.filter((juego) => juego.genero == categoryId) : resp.data
+        categoryId
+          ? resp.data.filter((juego) => juego.genero == categoryId)
+          : resp.data
       )
     );
   }, [categoryId]);
 
- console.log(categoryId)
   return (
     <div>
       <h1 className="ItemListContainer">{greeting}</h1>
-      <ItemList juegos={juegos} />
+        <ItemList juegos={juegos} />
     </div>
   );
 };
