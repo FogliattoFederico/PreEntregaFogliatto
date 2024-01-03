@@ -9,7 +9,7 @@ const NavBar = () => {
       <div className="Bg-Nav">
         <div className="NavBarSuperior">
           <div>
-            <FaGamepad size={60} />
+            <FaGamepad size={60}/>
           </div>
           <Link to="/">
             <h1 className="title">Power Games</h1>
