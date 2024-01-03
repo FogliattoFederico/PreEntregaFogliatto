@@ -1,4 +1,4 @@
-/* eslint-disable no-cond-assign */
+/* eslint-disable react/prop-types */
 import "./ItemListContainer.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -17,6 +17,7 @@ const ItemListContainer = ({ children }) => {
           ? resp.data.filter((juego) => juego.genero == categoryId)
           : resp.data
       )
+      
     );
   }, [categoryId]);
 
@@ -24,7 +25,7 @@ const ItemListContainer = ({ children }) => {
     <div>
       <h1 className="ItemListContainer">{children}</h1>
       <h2>{categoryId}</h2>
-        <ItemList juegos={juegos} />
+      <ItemList className="Contenedor-Juegos" juegos={juegos} />
     </div>
   );
 };

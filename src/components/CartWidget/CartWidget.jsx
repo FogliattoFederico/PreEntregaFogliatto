@@ -1,14 +1,13 @@
-// import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { FaShoppingCart } from "react-icons/fa";
-import "./CartWidget.css"
+import "./CartWidget.css";
 
 const CartWidget = () => {
   return (
     <div className="Carrito">
-      <FaShoppingCart />
+      <FaShoppingCart size={35} />
       <span>5</span>
     </div>
-  )
-}
+  );
+};
 
-export default CartWidget
+export default CartWidget;

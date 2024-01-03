@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -10,7 +11,7 @@ import { Link } from 'react-router-dom';
 const Item = ({juego}) => {
     const {nombre, precio, descripcion, imagen} = juego
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345}}>
       <CardActionArea>
         <Link to={`/detail/${juego.id}`}>
         <CardMedia
