@@ -1,12 +1,19 @@
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
-import ItemCount from '../ItemCount/ItemCount';
+/* eslint-disable react/prop-types */
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import { CardActionArea } from "@mui/material";
+import ItemCount from "../ItemCount/ItemCount";
 
-const ItemDetail = ({juego}) => {
-    const {nombre, precio, descripcion, imagen} = juego
+import { useContext } from "react";
+import { CartContext } from "../../Context/CartContext";
+
+const ItemDetail = ({ juego }) => {
+  const { nombre, precio, descripcion, imagen } = juego;
+
+  const { cart, setCart } = useContext(CartContext);
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
@@ -28,8 +35,12 @@ const ItemDetail = ({juego}) => {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <ItemCount initial={1} stock={10} onAdd={(quantity) => alert(`cantidad agregada ${quantity}`)}/>
+      <ItemCount
+        initial={1}
+        stock={10}
+        onAdd={(quantity) => alert(`cantidad agregada ${quantity}`)}
+      />
     </Card>
   );
-}
-export default ItemDetail
+};
+export default ItemDetail;

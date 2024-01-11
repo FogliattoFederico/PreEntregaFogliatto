@@ -23,7 +23,7 @@ const ItemListContainer = ({ children }) => {
 
   return (
     <div>
-      <h1 className="ItemListContainer">{children}</h1>
+      <div className="ItemListContainer">{children}</div>
       <h2>{categoryId}</h2>
       <ItemList className="Contenedor-Juegos" juegos={juegos} />
     </div>
