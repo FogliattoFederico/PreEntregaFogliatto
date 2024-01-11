@@ -6,11 +6,13 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import ItemCount from "../ItemCount/ItemCount";
 
+
+
 import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
 
 const ItemDetail = ({ juego }) => {
-  const { nombre, precio, descripcion, imagen } = juego;
+  const { nombre, precio, descripcion, imagen, cantidad, stock } = juego;
 
   const { cart, setCart } = useContext(CartContext);
 
@@ -36,8 +38,8 @@ const ItemDetail = ({ juego }) => {
         </CardContent>
       </CardActionArea>
       <ItemCount
-        initial={1}
-        stock={10}
+        initial={cantidad}
+        stock={stock}
         onAdd={(quantity) => alert(`cantidad agregada ${quantity}`)}
       />
     </Card>

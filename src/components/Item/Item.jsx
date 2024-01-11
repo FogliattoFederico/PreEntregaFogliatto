@@ -1,26 +1,25 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { Alert, CardActionArea } from '@mui/material';
-import ItemCount from '../ItemCount/ItemCount';
-import { Link } from 'react-router-dom';
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import { Alert, CardActionArea } from "@mui/material";
+import ItemCount from "../ItemCount/ItemCount";
+import { Link } from "react-router-dom";
 
-const Item = ({juego}) => {
-    const {nombre, precio, descripcion, imagen} = juego
+const Item = ({ juego }) => {
+  const { nombre, precio, descripcion, imagen } = juego;
   return (
-    <Card sx={{ maxWidth: 345}}>
+    <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
-        <Link to={`/detail/${juego.id}`}>
         <CardMedia
           component="img"
           height="auto"
           image={imagen}
           alt="green iguana"
-          />
-          </Link>
+        />
         <CardContent>
           <Typography gutterBottom variant="h4" component="div">
             {nombre}
@@ -33,8 +32,25 @@ const Item = ({juego}) => {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <ItemCount initial={1} stock={10} onAdd={(quantity) => alert(`cantidad agregada ${quantity}`)}/>
+
+      <Link
+        to={`/detail/${juego.id}`}
+        style={{ display: "flex", justifyContent: "center" }}
+      >
+        <Button
+          variant="contained"
+          sx={{
+            padding: "10px",
+            display: "inline-block",
+            marginBottom: "20px",
+            width: "80%",
+            fontSize: "15px",
+          }}
+        >
+          Ver Mas
+        </Button>
+      </Link>
     </Card>
   );
-}
-export default Item
+};
+export default Item;

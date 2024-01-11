@@ -2,7 +2,10 @@
 import { useState } from "react";
 import "./ItemCount.css";
 
+import Button from "@mui/material/Button";
+
 const ItemCount = ({ stock, initial, onAdd }) => {
+
   const [quantity, setQuantity] = useState(initial);
 
   const increment = () => {
@@ -26,14 +29,21 @@ const ItemCount = ({ stock, initial, onAdd }) => {
           +
         </button>
       </div>
-      <div>
-        <button
-          className="Boton"
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Button
           onClick={() => onAdd(quantity)}
           disabled={!stock}
+          variant="contained"
+          sx={{
+            padding: "10px",
+            display: "inline-block",
+            marginTop: "15px",
+            width: "100%",
+            fontSize: "15px",
+          }}
         >
           Agregar al carrito
-        </button>
+        </Button>
       </div>
     </div>
   );
