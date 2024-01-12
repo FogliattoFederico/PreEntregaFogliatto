@@ -4,9 +4,14 @@ import "./ItemCount.css";
 
 import Button from "@mui/material/Button";
 
-const ItemCount = ({ stock, initial, onAdd }) => {
+import { useContext } from "react";
+import { CartContext } from "../../Context/CartContext";
+
+const ItemCount = ({ stock, initial, onAdd, juego}) => {
 
   const [quantity, setQuantity] = useState(initial);
+
+  const {addCart} = useContext(CartContext)
 
   const increment = () => {
     if (quantity < stock) {
@@ -31,7 +36,8 @@ const ItemCount = ({ stock, initial, onAdd }) => {
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <Button
-          onClick={() => onAdd(quantity)}
+          // onClick={() => onAdd(quantity)}
+          onClick={() => addCart(juego, quantity)}
           disabled={!stock}
           variant="contained"
           sx={{
