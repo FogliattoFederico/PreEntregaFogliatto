@@ -20,12 +20,18 @@ export const CartProvider = ({ children }) => {
       // El producto no está en el carrito, agregarlo
       setCart([...cart, { ...ProductoNuevo, cantidad }]);
     }
-
-    console.log(cart);
   };
 
   const IsInCart = (Itemid) => {
     return cart.some((item) => item.id === Itemid);
+  };
+
+  const getQuantity = () => {
+    let cant = 0;
+
+    cart.forEach((e) => (cant += e.cantidad));
+
+    return cant;
   };
 
   const Clear = () => {
@@ -37,7 +43,7 @@ export const CartProvider = ({ children }) => {
   const addItem = () => {};
 
   return (
-    <CartContext.Provider value={{ cart, setCart, addCart }}>
+    <CartContext.Provider value={{ cart, setCart, addCart, getQuantity }}>
       {children}
     </CartContext.Provider>
   );

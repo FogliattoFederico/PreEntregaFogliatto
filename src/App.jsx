@@ -7,6 +7,7 @@ import { CartProvider } from "./Context/CartContext";
 import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailcontainer from "./components/ItemDetailContainer/ItemDetailcontainer";
+import Cart from "./components/Cart/Cart"
 
 //PAGES
 
@@ -43,6 +44,7 @@ const App = () => {
               path="/Category/:categoryId"
               element={<ItemListContainer />}
             />
+            <Route path="/Cart" element={<Cart/>}></Route>
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </div>

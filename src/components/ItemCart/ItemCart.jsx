@@ -1,17 +1,14 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
-import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Alert, CardActionArea } from "@mui/material";
+import { CardActionArea } from "@mui/material";
 import ItemCount from "../ItemCount/ItemCount";
-import { Link } from "react-router-dom";
 
+const ItemCart = ({ juego }) => {
+  const { nombre, precio, imagen, cantidad } = juego;
 
-const Item = ({ juego }) => {
-  const { nombre, precio, descripcion, imagen } = juego;
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
@@ -26,32 +23,20 @@ const Item = ({ juego }) => {
             {nombre}
           </Typography>
           <Typography variant="h5" color="text.secondary">
-            {descripcion}
+            Cantidad: {cantidad}
           </Typography>
           <Typography variant="h5" color="text.secondary">
-            ${precio}
+            Precio: ${precio}
           </Typography>
         </CardContent>
       </CardActionArea>
-
-      <Link
-        to={`/detail/${juego.id}`}
-        style={{ display: "flex", justifyContent: "center" }}
-      >
-        <Button
-          variant="contained"
-          sx={{
-            padding: "10px",
-            display: "inline-block",
-            marginBottom: "20px",
-            width: "80%",
-            fontSize: "15px",
-          }}
-        >
-          Ver Mas
-        </Button>
-      </Link>
+      {/* <ItemCount
+      juego={juego}
+        initial={cantidad}
+        stock={stock}
+        onAdd={(quantity) => alert(`cantidad agregada ${quantity}`)}
+      /> */}
     </Card>
   );
 };
-export default Item;
+export default ItemCart;
