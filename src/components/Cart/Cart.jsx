@@ -7,17 +7,18 @@ import ItemCart from "../ItemCart/ItemCart";
 import "./Cart.css";
 
 const Cart = () => {
-  let { cart, getQuantity } = useContext(CartContext);
+  let { cart, getQuantity, Clear } = useContext(CartContext);
+
+  const totalImporte = cart.reduce(
+    (acumulador, producto) => acumulador + producto.precio * producto.cantidad,
+    0
+  );
 
   return (
     <div className="Cart">
-      <div className="Contenedor-Juegos">
+      <div className="Contenedor-Juegos-Cart">
         {cart.map((juego) => {
-          return (
-            <div key={juego.id}>
-              <ItemCart juego={juego} />
-            </div>
-          );
+          return <div key={juego.id}>{<ItemCart juego={juego} />}</div>;
         })}
       </div>
       <div className="Cart-container">
@@ -28,11 +29,11 @@ const Cart = () => {
             <h2 className="Titulo">Tu carrito esta vacio</h2>
           )}
           <h3>Cantidad de productos : {getQuantity()}</h3>
-          <h3>Total: $ {}</h3>
+          <h3>Total: $ {totalImporte}</h3>
         </div>
         <div className="Botones">
-          <Button variant="contained">Pagar</Button>
-          <Button variant="contained" color="error">
+          <Button sx={{fontSize: "1.5rem"}} variant="contained">Pagar</Button>
+          <Button sx={{fontSize: "1.5rem"}} variant="contained" color="error" onClick={Clear}>
             Vaciar Carrito
           </Button>
         </div>

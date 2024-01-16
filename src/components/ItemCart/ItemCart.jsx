@@ -4,7 +4,6 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
-import ItemCount from "../ItemCount/ItemCount";
 
 const ItemCart = ({ juego }) => {
   const { nombre, precio, imagen, cantidad } = juego;
@@ -14,7 +13,7 @@ const ItemCart = ({ juego }) => {
       <CardActionArea>
         <CardMedia
           component="img"
-          height="auto"
+          height="400rem"
           image={imagen}
           alt="green iguana"
         />
@@ -30,12 +29,13 @@ const ItemCart = ({ juego }) => {
           </Typography>
         </CardContent>
       </CardActionArea>
-      {/* <ItemCount
-      juego={juego}
-        initial={cantidad}
-        stock={stock}
-        onAdd={(quantity) => alert(`cantidad agregada ${quantity}`)}
-      /> */}
+      <div
+        style={{ display: "flex", justifyContent: "center", padding: "2rem" }}
+      >
+        <button>+</button>
+        <p style={{ margin: "0 2rem" }}>{juego.cantidad}</p>
+        <button>-</button>
+      </div>
     </Card>
   );
 };

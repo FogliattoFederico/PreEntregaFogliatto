@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
 
-const ItemCount = ({ stock, initial, onAdd, juego}) => {
+const ItemCount = ({ stock, initial, juego}) => {
 
   const [quantity, setQuantity] = useState(initial);
 
@@ -36,7 +36,6 @@ const ItemCount = ({ stock, initial, onAdd, juego}) => {
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <Button
-          // onClick={() => onAdd(quantity)}
           onClick={() => addCart(juego, quantity)}
           disabled={!stock}
           variant="contained"

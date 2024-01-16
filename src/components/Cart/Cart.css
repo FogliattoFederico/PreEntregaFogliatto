@@ -1,4 +1,4 @@
-.Contenedor-Juegos {
+.Contenedor-Juegos-Cart {
   display: grid;
   grid-template-columns: 100%;
   gap: 4rem;
@@ -22,7 +22,7 @@
 
 .Cart-container {
   border: 1px solid grey;
-  height: auto;
+  height: 40rem;
   margin-top: 4rem;
   display: flex;
   flex-direction: column;
@@ -49,12 +49,12 @@ h3 {
 }
 
 @media (min-width: 768px) {
-  .Contenedor-Juegos {
+  .Contenedor-Juegos-Cart {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (min-width: 992px) {
-  .Contenedor-Juegos {
+  .Contenedor-Juegos-Cart {
     grid-template-columns: repeat(3, 1fr);
   }
   .Cart {
