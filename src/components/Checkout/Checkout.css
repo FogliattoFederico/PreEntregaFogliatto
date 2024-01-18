@@ -1,0 +1,23 @@
+.Titulo-pago {
+    color: white;
+    margin: 3rem;
+    padding-bottom: 2rem;
+}
+
+.Formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6rem;
+}
+
+.Inputs{
+    width: 40%;
+    height: 5rem;
+}
+
+.Btns-Pago{
+    display: flex;
+    column-gap: 8rem;
+    margin-bottom: 5rem;
+}

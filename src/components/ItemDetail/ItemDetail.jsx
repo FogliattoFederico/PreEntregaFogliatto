@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import ItemCount from "../ItemCount/ItemCount";
 
-const ItemDetail = ({ juego }) => {
+const ItemDetail = ({juego}) => {
   const { nombre, precio, descripcion, imagen, cantidad, stock } = juego;
 
   return (

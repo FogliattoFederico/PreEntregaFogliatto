@@ -4,6 +4,8 @@ import Button from "@mui/material/Button";
 
 import ItemCart from "../ItemCart/ItemCart";
 
+import { Link } from "react-router-dom";
+
 import "./Cart.css";
 
 const Cart = () => {
@@ -23,6 +25,7 @@ const Cart = () => {
       </div>
       <div className="Cart-container">
         <div>
+          {console.log(cart)}
           {cart.lenght > 0 ? (
             <h2 className="Titulo">Tu Carrito</h2>
           ) : (
@@ -32,7 +35,9 @@ const Cart = () => {
           <h3>Total: $ {totalImporte}</h3>
         </div>
         <div className="Botones">
-          <Button sx={{fontSize: "1.5rem"}} variant="contained">Pagar</Button>
+          <Link to="/Pago">
+          <Button sx={{fontSize: "1.5rem"}} variant="contained" >Checkout</Button>
+          </Link>
           <Button sx={{fontSize: "1.5rem"}} variant="contained" color="error" onClick={Clear}>
             Vaciar Carrito
           </Button>

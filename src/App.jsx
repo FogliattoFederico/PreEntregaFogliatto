@@ -7,7 +7,8 @@ import { CartProvider } from "./Context/CartContext";
 import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailcontainer from "./components/ItemDetailContainer/ItemDetailcontainer";
-import Cart from "./components/Cart/Cart"
+import Cart from "./components/Cart/Cart";
+import Checkout from "./components/Checkout/Checkout";
 
 //PAGES
 
@@ -32,7 +33,7 @@ const App = () => {
                   <h1 style={{ marginBottom: "40px" }}>
                     Bienvenido a POWER GAMES
                   </h1>
-                  <h2 style={{fontSize: "3rem"}}>
+                  <h2 style={{ fontSize: "3rem" }}>
                     Aqui encontraras los ultimos lanzamientos para todas las
                     plataformas
                   </h2>
@@ -44,7 +45,8 @@ const App = () => {
               path="/Category/:categoryId"
               element={<ItemListContainer />}
             />
-            <Route path="/Cart" element={<Cart/>}></Route>
+            <Route path="/Cart" element={<Cart />}></Route>
+            <Route path="/Pago" element={<Checkout />}></Route>
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </div>
