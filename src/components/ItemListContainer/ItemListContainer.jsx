@@ -15,31 +15,21 @@ import {
 } from "firebase/firestore";
 
 import ItemList from "../ItemList/ItemList";
-// import { ImportExport } from "@mui/icons-material";
 
 const ItemListContainer = ({ children }) => {
   const [juegos, setJuegos] = useState([]);
   let { categoryId } = useParams();
 
   useEffect(() => {
-    // axios("../apiJuegos.json").then((resp) =>
-    //   setJuegos(
-    //     categoryId
-    //       ? resp.data.filter((juego) => juego.genero == categoryId)
-    //       : resp.data
-    //   )
-
-    // );
     const getGames = async () => {
-      let q
+      let q;
       categoryId
         ? (q = query(
             collection(db, "games"),
-            where(documentId("genero", "==", categoryId))
+            where("genero", "==", categoryId)
           ))
         : (q = query(collection(db, "games")));
-      // const q = query(collection(db, "games"))
-      console.log(q);
+
       const docs = [];
       const querySnapshot = await getDocs(q);
 
@@ -47,6 +37,7 @@ const ItemListContainer = ({ children }) => {
         docs.push({ ...doc.data(), id: doc.id });
       });
       setJuegos(docs);
+      console.log(docs);
     };
     getGames();
   }, [categoryId]);
