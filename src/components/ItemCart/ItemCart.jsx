@@ -4,9 +4,21 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
+import Button from "@mui/material/Button";
+
+import { useState } from "react";
 
 const ItemCart = ({ juego }) => {
-  const { nombre, precio, imagen, cantidad } = juego;
+  const { nombre, precio, imagen, cantidad, stock } = juego;
+  
+  const [quantity, setQuantity] = useState(1);
+
+  const increment = () => {
+    if (quantity < stock) {
+      setQuantity(quantity + 1);
+      
+    }
+  };
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -32,9 +44,13 @@ const ItemCart = ({ juego }) => {
       <div
         style={{ display: "flex", justifyContent: "center", padding: "2rem" }}
       >
-        <button>+</button>
-        <p style={{ margin: "0 2rem" }}>{juego.cantidad}</p>
+        <button onClick={increment()}>+</button>
+        <p style={{ margin: "0 2rem" }}>{quantity}</p>
         <button>-</button>
+      </div>
+      <div style={{display: "flex", justifyContent: "center"}}>
+        <Button variant="contained"  sx={{ fontSize: "1.5rem", marginBottom: 2}}>Quitar</Button>
+        
       </div>
     </Card>
   );

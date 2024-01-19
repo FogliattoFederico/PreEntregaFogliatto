@@ -7,11 +7,10 @@ import Button from "@mui/material/Button";
 import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
 
-const ItemCount = ({ stock, initial, juego}) => {
-
+const ItemCount = ({ stock, initial, juego }) => {
   const [quantity, setQuantity] = useState(initial);
 
-  const {addCart} = useContext(CartContext)
+  const { addCart } = useContext(CartContext);
 
   const increment = () => {
     if (quantity < stock) {

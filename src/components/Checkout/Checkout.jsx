@@ -1,25 +1,82 @@
-import "./Checkout.css"
-import Button from "@mui/material/Button";
+import { useState } from "react";
+import "./Checkout.css";
+
+import MessageSuccess from "../MessageSucces/MessageSucces";
+
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../../firebase/firebaseConfig";
+
+import TextField from "@mui/material/TextField";
+
+const styles = {
+  containerShop: {
+    textAlign: "center",
+    paddingTop: 20,
+  },
+};
+
+const initialState = {
+  name: "",
+  lastName: "",
+  city: "",
+};
 
 const Checkout = () => {
-  return (
-    <div>
-      <h1 className="Titulo-pago">Finaliza el pago</h1>
-      <form action="" className="Formulario">
-        <input className="Inputs" type="text" placeholder="Nombre y Apellido" required={true} />
-        <input className="Inputs" type="number" placeholder="Numero de tarjeta" required={true} />
-        <input className="Inputs" type="text" placeholder="Direccion" required={true} />
-        <input className="Inputs" type="number" placeholder="Telefono" required={true} />
-        <input className="Inputs" type="email" placeholder="Correo electronico" required={true} />
-        <div className="Btns-Pago">
-        <Button sx={{fontSize: "1.5rem"}} variant="contained" type="submit" >Pagar</Button>
-        <Button sx={{fontSize: "1.5rem"}} variant="contained" color="error">
-            Cancelar Compra
-        </Button>
-        </div>
-      </form>
-    </div>
-  )
-}
+  const [values, setValues] = useState(initialState);
+  const [purchaseID, setPurchaseId] = useState(null);
 
-export default Checkout
+  const onChange = (e) => {
+    const { value, name } = e.target;
+    setValues({ ...values, [name]: value });
+  };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const docRef = await addDoc(collection(db, "purchasesCollection"), {
+      values,
+    });
+    setPurchaseId(docRef.id);
+    setValues(initialState);
+  };
+
+  return (
+    <div style={styles.containerShop}>
+      <h1 style={{ color: "white" }}>Shop</h1>
+      <form className="FormContainer" onSubmit={onSubmit}>
+        <TextField
+          placeholder="Name"
+          style={{ margin: 10,width: 400, background: "white" }}
+          name="name"
+          value={values.name}
+          onChange={onChange}
+          required
+          className="TextField"
+        />
+        <TextField
+          placeholder="Last Name"
+          style={{ margin: 10, width: 400, background: "white" }}
+          name="lastName"
+          value={values.lastName}
+          onChange={onChange}
+          required
+          className="TextField"
+        />
+        <TextField
+          placeholder="City"
+          style={{ margin: 10, width: 400, background: "white" }}
+          name="city"
+          value={values.city}
+          onChange={onChange}
+          required
+          className="TextField"
+          
+        />
+        <button className="btnASendAction TextField">Send</button>
+      </form>
+
+      {purchaseID ? <MessageSuccess purchaseID={purchaseID} /> : null}
+    </div>
+  );
+};
+
+export default Checkout;

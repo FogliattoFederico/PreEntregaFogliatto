@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import ItemCount from "../ItemCount/ItemCount";
 
-const ItemDetail = ({juego}) => {
+const ItemDetail = ({ juego }) => {
   const { nombre, precio, descripcion, imagen, cantidad, stock } = juego;
 
   return (
@@ -30,12 +30,7 @@ const ItemDetail = ({juego}) => {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <ItemCount
-      juego={juego}
-        initial={cantidad}
-        stock={stock}
-        onAdd={(quantity) => alert(`cantidad agregada ${quantity}`)}
-      />
+      <ItemCount juego={juego} initial={cantidad} stock={stock} />
     </Card>
   );
 };

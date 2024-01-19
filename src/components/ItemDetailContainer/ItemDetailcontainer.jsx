@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
 import "./ItemDetailcontainer.css";
+//Spinner
+import Spinner from "../Spinner/Spinner";
 
 //Firebase
-import { db } from "../../Firebase/FirebaseConfig";
+import { db } from "../../firebase/firebaseConfig";
 import {
   collection,
   query,
@@ -15,6 +17,7 @@ import {
 
 const ItemDetailcontainer = () => {
   const [juego, setJuego] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   let { id } = useParams();
 
@@ -30,13 +33,22 @@ const ItemDetailcontainer = () => {
       setJuego(docs);
     };
     getGame();
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
   }, [id]);
 
   return (
-    <div className="ItemDetail">
-      {juego.map((juego) => {
-        return <ItemDetail juego={juego} key={juego.id} />;
-      })}
+    <div className="Spinner">
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <div className="ItemDetail">
+          {juego.map((juego) => {
+            return <ItemDetail juego={juego} key={juego.id} />;
+          })}
+        </div>
+      )}
     </div>
   );
 };

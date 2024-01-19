@@ -25,8 +25,7 @@ const Cart = () => {
       </div>
       <div className="Cart-container">
         <div>
-          {console.log(cart)}
-          {cart.lenght > 0 ? (
+          {getQuantity() ? (
             <h2 className="Titulo">Tu Carrito</h2>
           ) : (
             <h2 className="Titulo">Tu carrito esta vacio</h2>
@@ -36,9 +35,16 @@ const Cart = () => {
         </div>
         <div className="Botones">
           <Link to="/Pago">
-          <Button sx={{fontSize: "1.5rem"}} variant="contained" >Checkout</Button>
+            <Button sx={{ fontSize: "1.5rem" }} variant="contained">
+              Checkout
+            </Button>
           </Link>
-          <Button sx={{fontSize: "1.5rem"}} variant="contained" color="error" onClick={Clear}>
+          <Button
+            sx={{ fontSize: "1.5rem" }}
+            variant="contained"
+            color="error"
+            onClick={Clear}
+          >
             Vaciar Carrito
           </Button>
         </div>

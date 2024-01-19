@@ -1,4 +1,3 @@
-
 .Bg-Nav {
   background-color: cadetblue;
   width: 100%;
@@ -19,30 +18,28 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  
 }
 .Separador {
   display: flex;
   border-top: 2px solid gray;
 }
 
-.Link{
+.Link {
   padding: 2rem;
   list-style: none;
   margin-bottom: 1rem;
 }
-.title{
+.title {
   color: black;
-  
 }
-@media (min-width: 768px ) {
-  .NavBarInferior{
+@media (min-width: 768px) {
+  .NavBarInferior {
     flex-direction: row;
   }
-  .Bg-Nav{
+  .Bg-Nav {
     height: 18rem;
   }
-  .NavBarSuperior{
+  .NavBarSuperior {
     width: 90%;
   }
 }

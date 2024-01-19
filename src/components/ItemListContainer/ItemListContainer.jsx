@@ -3,21 +3,19 @@ import "./ItemListContainer.css";
 import { useState, useEffect } from "react";
 // import axios from "axios";
 import { useParams } from "react-router-dom";
+//Spinner
+import Spinner from "../Spinner/Spinner";
 
 //Firebase
-import { db } from "../../Firebase/FirebaseConfig";
-import {
-  collection,
-  query,
-  getDocs,
-  where,
-  documentId,
-} from "firebase/firestore";
+import { db } from "../../firebase/firebaseConfig";
+import { collection, query, getDocs, where } from "firebase/firestore";
 
 import ItemList from "../ItemList/ItemList";
 
 const ItemListContainer = ({ children }) => {
   const [juegos, setJuegos] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
   let { categoryId } = useParams();
 
   useEffect(() => {
@@ -37,16 +35,26 @@ const ItemListContainer = ({ children }) => {
         docs.push({ ...doc.data(), id: doc.id });
       });
       setJuegos(docs);
-      console.log(docs);
     };
     getGames();
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
   }, [categoryId]);
 
   return (
     <div>
-      <div className="ItemListContainer">{children}</div>
-      <h2>{categoryId}</h2>
-      <ItemList className="Contenedor-Juegos" juegos={juegos} />
+      {isLoading ? (
+        <div className="Spinner">
+          <Spinner />
+        </div>
+      ) : (
+        <>
+          <div className="ItemListContainer">{children}</div>
+          <h2>{categoryId}</h2>
+          <ItemList className="Contenedor-Juegos" juegos={juegos} />
+        </>
+      )}
     </div>
   );
 };

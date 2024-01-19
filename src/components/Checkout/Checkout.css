@@ -1,23 +1,32 @@
-.Titulo-pago {
-    color: white;
-    margin: 3rem;
-    padding-bottom: 2rem;
+.FormContainer {
+	display: flex;
+	max-width: 50%;
+    width: 90%;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 20px;
+	background-color: white;
+    margin: 2rem auto;
 }
 
-.Formulario{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6rem;
+.TextField{
+	max-width: 90%;
+}
+.btnASendAction {
+	background: rgb(97, 206, 248);
+	color: white;
+	height: 54px;
+	width: 400px;
+	border-radius: 8px;
+	font-size: 18px;
+	transition: background, color 0.5s;
+	outline: #ff0000;
+	border: none;
+	margin: 10px;
 }
 
-.Inputs{
-    width: 40%;
-    height: 5rem;
-}
-
-.Btns-Pago{
-    display: flex;
-    column-gap: 8rem;
-    margin-bottom: 5rem;
+.btnASendAction:hover {
+	color:black ;
+	background: yellow;
 }
