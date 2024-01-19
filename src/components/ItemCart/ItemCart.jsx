@@ -10,13 +10,12 @@ import { useState } from "react";
 
 const ItemCart = ({ juego }) => {
   const { nombre, precio, imagen, cantidad, stock } = juego;
-  
+
   const [quantity, setQuantity] = useState(1);
 
   const increment = () => {
     if (quantity < stock) {
       setQuantity(quantity + 1);
-      
     }
   };
 
@@ -48,9 +47,10 @@ const ItemCart = ({ juego }) => {
         <p style={{ margin: "0 2rem" }}>{quantity}</p>
         <button>-</button>
       </div>
-      <div style={{display: "flex", justifyContent: "center"}}>
-        <Button variant="contained"  sx={{ fontSize: "1.5rem", marginBottom: 2}}>Quitar</Button>
-        
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Button variant="text" sx={{ fontSize: "1.5rem", marginBottom: 2 }}>
+          X
+        </Button>
       </div>
     </Card>
   );
