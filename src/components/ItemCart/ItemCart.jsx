@@ -9,25 +9,10 @@ import Button from "@mui/material/Button";
 import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
 
-import { useState } from "react";
-
 const ItemCart = ({ juego }) => {
-  let { id, nombre, precio, imagen, cantidad, stock } = juego;
+  let { id, nombre, precio, imagen, cantidad } = juego;
 
-  let { removeItem } = useContext(CartContext);
-
-  const [quantity, setQuantity] = useState(cantidad);
-
-  const increment = () => {
-    if (cantidad < stock) {
-      setQuantity(quantity + 1);
-    }
-  };
-  const decrement = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
-  };
+  let { removeItem, increment, decrement, quantity } = useContext(CartContext);
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -53,7 +38,7 @@ const ItemCart = ({ juego }) => {
       <div
         style={{ display: "flex", justifyContent: "center", padding: "2rem" }}
       >
-        <button onClick={increment}>+</button>
+        <button onClick={() => increment(juego)}>+</button>
         <p style={{ margin: "0 2rem" }}>{quantity}</p>
         <button onClick={decrement}>-</button>
       </div>

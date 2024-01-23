@@ -12,16 +12,21 @@ export const CartProvider = ({ children }) => {
   const [quantity, setQuantity] = useState(1);
 
   const increment = (e) => {
-    if (e.cantidad < e.stock) {
+    if (quantity < e.stock) {
       setQuantity(quantity + 1);
     }
   };
 
+  const decrement = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
 
   const message = () => {
     toast.success("Agregado exitosamente", {
       position: "top-right",
-      autoClose: 1500,
+      autoClose: 500,
       transition: Bounce,
       theme: "dark",
     });
@@ -58,15 +63,23 @@ export const CartProvider = ({ children }) => {
   };
 
   const removeItem = (id) => {
-    const updatedCart = cart.filter(item => item.id !== id);
-    setCart(updatedCart)
-  }
-
-  const addItem = () => {};
+    const updatedCart = cart.filter((item) => item.id !== id);
+    setCart(updatedCart);
+  };
 
   return (
     <CartContext.Provider
-      value={{ cart, setCart, addCart, getQuantity, clear, removeItem, increment  }}
+      value={{
+        cart,
+        setCart,
+        addCart,
+        getQuantity,
+        clear,
+        removeItem,
+        increment,
+        decrement,
+        quantity,
+      }}
     >
       {children}
     </CartContext.Provider>

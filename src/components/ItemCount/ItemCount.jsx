@@ -26,12 +26,12 @@ const ItemCount = ({ stock, initial, juego }) => {
   return (
     <div className="flex-column">
       <div className="flex">
-        <button className="" onClick={decrement}>
-          -
-        </button>
-        <h4 className="">{quantity}</h4>
         <button className="" onClick={increment}>
           +
+        </button>
+        <h4 className="">{quantity}</h4>
+        <button className="" onClick={decrement}>
+          -
         </button>
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
@@ -49,7 +49,7 @@ const ItemCount = ({ stock, initial, juego }) => {
         >
           Agregar al carrito
         </Button>
-        <ToastContainer/>
+        <ToastContainer />
       </div>
     </div>
   );
