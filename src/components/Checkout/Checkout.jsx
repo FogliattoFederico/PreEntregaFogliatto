@@ -28,7 +28,7 @@ const Checkout = () => {
   const [values, setValues] = useState(initialState);
   const [purchaseID, setPurchaseId] = useState(null);
 
-  const { cart } = useContext(CartContext)
+  const { cart, setCart } = useContext(CartContext)
   const onChange = (e) => {
     const { value, name } = e.target;
     setValues({ ...values, [name]: value });
@@ -41,6 +41,7 @@ const Checkout = () => {
     });
     setPurchaseId(docRef.id);
     setValues(initialState);
+    setCart([])
   };
 
   return (

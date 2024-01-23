@@ -40,9 +40,7 @@ const Cart = () => {
                 Checkout
               </Button>
             ) : (
-              <Button sx={{ fontSize: "1.5rem" }} variant="contained" disabled>
-                Checkout
-              </Button>
+              null
             )}
           </Link>
           <Button

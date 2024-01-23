@@ -9,7 +9,7 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-  const mensaje = () => {
+  const message = () => {
     toast.success("Agregado exitosamente", {
       position: "top-right",
       autoClose: 1500,
@@ -19,7 +19,6 @@ export const CartProvider = ({ children }) => {
   };
   const addCart = (ProductoNuevo, cantidad) => {
     if (IsInCart(ProductoNuevo.id)) {
-      // El producto ya está en el carrito, aumentar la cantidad
       setCart(
         cart.map((item) =>
           item.id === ProductoNuevo.id
@@ -28,10 +27,9 @@ export const CartProvider = ({ children }) => {
         )
       );
     } else {
-      // El producto no está en el carrito, agregarlo
       setCart([...cart, { ...ProductoNuevo, cantidad }]);
     }
-    mensaje();
+    message();
   };
 
   const IsInCart = (Itemid) => {
@@ -50,10 +48,11 @@ export const CartProvider = ({ children }) => {
     setCart([]);
   };
 
-  const RemoveItem = (id) => {
-    const updatedCart = cart.filter(item => item.id !== id);
-    setCart(updatedCart)
-  };
+  // const RemoveItem = (id) => {
+  //   const updatedCart = cart.filter((item) => item.id !== id);
+  //   setCart(updatedCart);
+  //   console.log(cart)
+  // };
 
   const addItem = () => {};
 
