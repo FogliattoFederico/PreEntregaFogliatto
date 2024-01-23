@@ -6,6 +6,9 @@ import MessageSuccess from "../MessageSucces/MessageSucces";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
 
+import { useContext } from "react";
+import { CartContext } from "../../Context/CartContext";
+
 import TextField from "@mui/material/TextField";
 
 const styles = {
@@ -25,6 +28,7 @@ const Checkout = () => {
   const [values, setValues] = useState(initialState);
   const [purchaseID, setPurchaseId] = useState(null);
 
+  const { cart } = useContext(CartContext)
   const onChange = (e) => {
     const { value, name } = e.target;
     setValues({ ...values, [name]: value });
@@ -33,7 +37,7 @@ const Checkout = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     const docRef = await addDoc(collection(db, "purchasesCollection"), {
-      values,
+      values, cart
     });
     setPurchaseId(docRef.id);
     setValues(initialState);

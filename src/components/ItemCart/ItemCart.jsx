@@ -6,18 +6,35 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import Button from "@mui/material/Button";
 
+import { useContext } from "react";
+import { CartContext } from "../../Context/CartContext";
+
 import { useState } from "react";
 
 const ItemCart = ({ juego }) => {
-  const { nombre, precio, imagen, cantidad, stock } = juego;
+  let { nombre, precio, imagen, cantidad, stock } = juego;
 
-  const [quantity, setQuantity] = useState(1);
+  let { cart, setCart, addCart } = useContext(CartContext);
+
+  const [quantity, setQuantity] = useState(cantidad);
 
   const increment = () => {
-    if (quantity < stock) {
+    if (cantidad < stock) {
       setQuantity(quantity + 1);
+      
     }
   };
+  const decrement = () => {
+    if (quantity > 0) {
+      setQuantity(quantity - 1);
+    }
+  };
+
+  const clear = (id) => {
+    const updatedCart = cart.filter(item => item.id !== id);
+    console.log(updatedCart)
+    setCart(updatedCart)
+  }
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -43,12 +60,12 @@ const ItemCart = ({ juego }) => {
       <div
         style={{ display: "flex", justifyContent: "center", padding: "2rem" }}
       >
-        <button onClick={increment()}>+</button>
+        <button onClick={increment}>+</button>
         <p style={{ margin: "0 2rem" }}>{quantity}</p>
-        <button>-</button>
+        <button onClick={decrement}>-</button>
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <Button variant="text" sx={{ fontSize: "1.5rem", marginBottom: 2 }}>
+        <Button onClick={clear} variant="text" sx={{ fontSize: "1.5rem", marginBottom: 2 }}>
           X
         </Button>
       </div>

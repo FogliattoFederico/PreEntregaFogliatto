@@ -7,7 +7,6 @@ import ItemCart from "../ItemCart/ItemCart";
 import { Link } from "react-router-dom";
 
 import "./Cart.css";
-import { grey } from "@mui/material/colors";
 
 const Cart = () => {
   let { cart, getQuantity, Clear } = useContext(CartContext);
@@ -36,12 +35,15 @@ const Cart = () => {
         </div>
         <div className="Botones">
           <Link to="/Pago">
-            {getQuantity() ? 
-            (<Button sx={{ fontSize: "1.5rem" }} variant="contained"  >
-              Checkout
-            </Button>) :  (<Button sx={{ fontSize: "1.5rem" }} variant="contained" disabled  >
-              Checkout
-            </Button>)}
+            {getQuantity() ? (
+              <Button sx={{ fontSize: "1.5rem" }} variant="contained">
+                Checkout
+              </Button>
+            ) : (
+              <Button sx={{ fontSize: "1.5rem" }} variant="contained" disabled>
+                Checkout
+              </Button>
+            )}
           </Link>
           <Button
             sx={{ fontSize: "1.5rem" }}

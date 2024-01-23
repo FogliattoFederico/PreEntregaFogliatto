@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 
 import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
+import { ToastContainer } from "react-toastify";
 
 const ItemCount = ({ stock, initial, juego }) => {
   const [quantity, setQuantity] = useState(initial);
@@ -48,6 +49,7 @@ const ItemCount = ({ stock, initial, juego }) => {
         >
           Agregar al carrito
         </Button>
+        <ToastContainer/>
       </div>
     </div>
   );

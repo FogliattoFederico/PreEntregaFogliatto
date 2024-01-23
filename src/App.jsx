@@ -2,7 +2,8 @@ import "./App.css";
 
 //CONTENXT
 import { CartProvider } from "./Context/CartContext";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 //COMPONENTES
 import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";

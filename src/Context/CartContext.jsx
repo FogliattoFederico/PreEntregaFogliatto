@@ -1,11 +1,22 @@
 /* eslint-disable react/prop-types */
 import { createContext, useState } from "react";
+import { Bounce, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
+  const mensaje = () => {
+    toast.success("Agregado exitosamente", {
+      position: "top-right",
+      autoClose: 1500,
+      transition: Bounce,
+      theme: "dark",
+    });
+  };
   const addCart = (ProductoNuevo, cantidad) => {
     if (IsInCart(ProductoNuevo.id)) {
       // El producto ya está en el carrito, aumentar la cantidad
@@ -20,6 +31,7 @@ export const CartProvider = ({ children }) => {
       // El producto no está en el carrito, agregarlo
       setCart([...cart, { ...ProductoNuevo, cantidad }]);
     }
+    mensaje();
   };
 
   const IsInCart = (Itemid) => {
@@ -38,7 +50,10 @@ export const CartProvider = ({ children }) => {
     setCart([]);
   };
 
-  const RemoveItem = (id) => {};
+  const RemoveItem = (id) => {
+    const updatedCart = cart.filter(item => item.id !== id);
+    setCart(updatedCart)
+  };
 
   const addItem = () => {};
 
