@@ -27,7 +27,6 @@ const ItemListContainer = ({ children }) => {
             where("genero", "==", categoryId)
           ))
         : (q = query(collection(db, "games")));
-
       const docs = [];
       const querySnapshot = await getDocs(q);
 

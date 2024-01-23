@@ -32,7 +32,6 @@ const ItemCart = ({ juego }) => {
 
   const clear = (id) => {
     const updatedCart = cart.filter(item => item.id !== id);
-    console.log(updatedCart)
     setCart(updatedCart)
   }
 
@@ -65,7 +64,7 @@ const ItemCart = ({ juego }) => {
         <button onClick={decrement}>-</button>
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <Button onClick={clear(id)} variant="text" sx={{ fontSize: "1.5rem", marginBottom: 2 }}>
+        <Button onClick={() =>{clear(id)}} variant="text" sx={{ fontSize: "1.5rem", marginBottom: 2 }}>
           X
         </Button>
       </div>
