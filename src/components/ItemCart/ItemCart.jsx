@@ -14,26 +14,20 @@ import { useState } from "react";
 const ItemCart = ({ juego }) => {
   let { id, nombre, precio, imagen, cantidad, stock } = juego;
 
-  let { cart, setCart } = useContext(CartContext);
+  let { removeItem } = useContext(CartContext);
 
   const [quantity, setQuantity] = useState(cantidad);
 
   const increment = () => {
     if (cantidad < stock) {
       setQuantity(quantity + 1);
-      
     }
   };
   const decrement = () => {
-    if (quantity > 0) {
+    if (quantity > 1) {
       setQuantity(quantity - 1);
     }
   };
-
-  const clear = (id) => {
-    const updatedCart = cart.filter(item => item.id !== id);
-    setCart(updatedCart)
-  }
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -64,7 +58,13 @@ const ItemCart = ({ juego }) => {
         <button onClick={decrement}>-</button>
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <Button onClick={() =>{clear(id)}} variant="text" sx={{ fontSize: "1.5rem", marginBottom: 2 }}>
+        <Button
+          onClick={() => {
+            removeItem(id);
+          }}
+          variant="text"
+          sx={{ fontSize: "1.5rem", marginBottom: 2 }}
+        >
           X
         </Button>
       </div>
