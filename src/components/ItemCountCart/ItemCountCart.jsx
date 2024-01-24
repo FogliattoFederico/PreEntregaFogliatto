@@ -1,9 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import "./ItemCountCart.css";
-
 import Button from "@mui/material/Button";
-
 import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
 import { ToastContainer } from "react-toastify";
@@ -15,15 +13,15 @@ const ItemCountCart = ({ stock, initial, juego, id }) => {
 
   const increment = () => {
     if (quantity < stock) {
-      setQuantity(prevQuantity => prevQuantity + 1);
-      addCart(juego, + 1);
+      setQuantity((prevQuantity) => prevQuantity + 1);
+      addCart(juego, +1);
     }
   };
-  
+
   const decrement = () => {
     if (quantity > 1) {
-      setQuantity(prevQuantity => prevQuantity - 1);
-      addCart(juego,  - 1);
+      setQuantity((prevQuantity) => prevQuantity - 1);
+      addCart(juego, -1);
     }
   };
   return (

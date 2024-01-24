@@ -1,21 +1,12 @@
 import "./App.css";
-
-//CONTENXT
 import { CartProvider } from "./Context/CartContext";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-//COMPONENTES
+import "react-toastify/dist/ReactToastify.css";
 import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailcontainer from "./components/ItemDetailContainer/ItemDetailcontainer";
 import Cart from "./components/Cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
-
-//PAGES
-
 import ErrorPage from "./Pages/ErrorPage/ErrorPage";
-
-//REACT ROUTER DOM
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => {

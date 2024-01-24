@@ -1,12 +1,11 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
+
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Alert, CardActionArea } from "@mui/material";
-import ItemCount from "../ItemCount/ItemCount";
+import { CardActionArea } from "@mui/material";
 import { Link } from "react-router-dom";
 
 const Item = ({ juego }) => {

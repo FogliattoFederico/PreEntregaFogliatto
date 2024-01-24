@@ -1,15 +1,10 @@
 /* eslint-disable react/prop-types */
 import "./ItemListContainer.css";
 import { useState, useEffect } from "react";
-// import axios from "axios";
 import { useParams } from "react-router-dom";
-//Spinner
-import Spinner from "../Spinner/Spinner";
-
-//Firebase
 import { db } from "../../firebase/firebaseConfig";
 import { collection, query, getDocs, where } from "firebase/firestore";
-
+import Spinner from "../Spinner/Spinner";
 import ItemList from "../ItemList/ItemList";
 
 const ItemListContainer = ({ children }) => {

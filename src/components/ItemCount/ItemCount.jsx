@@ -1,9 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import "./ItemCount.css";
-
 import Button from "@mui/material/Button";
-
 import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
 import { ToastContainer } from "react-toastify";

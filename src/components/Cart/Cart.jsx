@@ -1,11 +1,8 @@
 import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
 import Button from "@mui/material/Button";
-
-import ItemCart from "../ItemCart/ItemCart";
-
 import { Link } from "react-router-dom";
-
+import ItemCart from "../ItemCart/ItemCart";
 import "./Cart.css";
 
 const Cart = () => {
@@ -39,9 +36,7 @@ const Cart = () => {
               <Button sx={{ fontSize: "1.5rem" }} variant="contained">
                 Checkout
               </Button>
-            ) : (
-              null
-            )}
+            ) : null}
           </Link>
           <Button
             sx={{ fontSize: "1.5rem" }}

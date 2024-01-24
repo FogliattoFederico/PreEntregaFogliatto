@@ -1,15 +1,11 @@
 import { useState } from "react";
 import "./Checkout.css";
-
-import MessageSuccess from "../MessageSucces/MessageSucces";
-
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
-
 import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
-
 import TextField from "@mui/material/TextField";
+import MessageSuccess from "../MessageSucces/MessageSucces";
 
 const styles = {
   containerShop: {
@@ -59,6 +55,7 @@ const Checkout = () => {
           onChange={onChange}
           required
           className="TextField"
+          disabled={formDisabled}
         />
         <TextField
           placeholder="Last Name"
@@ -68,6 +65,8 @@ const Checkout = () => {
           onChange={onChange}
           required
           className="TextField"
+          disabled={formDisabled}
+
         />
         <TextField
           placeholder="Email"
@@ -79,6 +78,8 @@ const Checkout = () => {
           className="TextField"
           type="email"
           id="email1"
+          disabled={formDisabled}
+
         />
         <TextField
           placeholder="City"
@@ -88,7 +89,8 @@ const Checkout = () => {
           onChange={onChange}
           required
           className="TextField"
-          
+          disabled={formDisabled}
+
         />
         <button className="btnASendAction TextField" disabled={formDisabled}>Send</button>
       </form>

@@ -2,10 +2,7 @@ import { useEffect, useState } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
 import "./ItemDetailcontainer.css";
-//Spinner
 import Spinner from "../Spinner/Spinner";
-
-//Firebase
 import { db } from "../../firebase/firebaseConfig";
 import {
   collection,
