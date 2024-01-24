@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import "./Cart.css";
 
 const Cart = () => {
-  let { cart, getQuantity, Clear } = useContext(CartContext);
+  let { cart, getQuantity, clear } = useContext(CartContext);
 
   const totalImporte = cart.reduce(
     (acumulador, producto) => acumulador + producto.precio * producto.cantidad,
@@ -47,7 +47,7 @@ const Cart = () => {
             sx={{ fontSize: "1.5rem" }}
             variant="contained"
             color="error"
-            onClick={Clear}
+            onClick={clear}
           >
             Vaciar Carrito
           </Button>

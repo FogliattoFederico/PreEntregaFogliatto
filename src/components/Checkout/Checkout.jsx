@@ -21,12 +21,14 @@ const styles = {
 const initialState = {
   name: "",
   lastName: "",
+  email: "",
   city: "",
 };
 
 const Checkout = () => {
   const [values, setValues] = useState(initialState);
   const [purchaseID, setPurchaseId] = useState(null);
+  const [formDisabled, setFormDisabled] = useState(false);
 
   const { cart, setCart } = useContext(CartContext)
   const onChange = (e) => {
@@ -41,6 +43,7 @@ const Checkout = () => {
     });
     setPurchaseId(docRef.id);
     setValues(initialState);
+    setFormDisabled(true);
     setCart([])
   };
 
@@ -67,6 +70,17 @@ const Checkout = () => {
           className="TextField"
         />
         <TextField
+          placeholder="Email"
+          style={{ margin: 10, width: 400, background: "white" }}
+          name="email"
+          value={values.email}
+          onChange={onChange}
+          required
+          className="TextField"
+          type="email"
+          id="email1"
+        />
+        <TextField
           placeholder="City"
           style={{ margin: 10, width: 400, background: "white" }}
           name="city"
@@ -76,7 +90,7 @@ const Checkout = () => {
           className="TextField"
           
         />
-        <button className="btnASendAction TextField">Send</button>
+        <button className="btnASendAction TextField" disabled={formDisabled}>Send</button>
       </form>
 
       {purchaseID ? <MessageSuccess purchaseID={purchaseID} /> : null}
