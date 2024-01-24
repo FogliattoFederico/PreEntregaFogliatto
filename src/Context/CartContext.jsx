@@ -9,20 +9,6 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-  const [quantity, setQuantity] = useState(1);
-
-  const increment = (e) => {
-    if (quantity < e.stock) {
-      setQuantity(quantity + 1);
-    }
-  };
-
-  const decrement = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
-  };
-
   const message = () => {
     toast.success("Agregado exitosamente", {
       position: "top-right",
@@ -76,9 +62,6 @@ export const CartProvider = ({ children }) => {
         getQuantity,
         clear,
         removeItem,
-        increment,
-        decrement,
-        quantity,
       }}
     >
       {children}

@@ -6,11 +6,13 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import Button from "@mui/material/Button";
 
+import ItemCountCart from "../ItemCountCart/ItemCountCart";
+
 import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
 
 const ItemCart = ({ juego }) => {
-  let { id, nombre, precio, imagen, cantidad } = juego;
+  let { id, nombre, precio, imagen, cantidad, stock } = juego;
 
   let { removeItem, increment, decrement, quantity } = useContext(CartContext);
 
@@ -35,7 +37,7 @@ const ItemCart = ({ juego }) => {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <div
+      {/* <div
         style={{ display: "flex", justifyContent: "center", padding: "2rem" }}
       >
         <button onClick={() => increment(juego)}>+</button>
@@ -52,7 +54,8 @@ const ItemCart = ({ juego }) => {
         >
           X
         </Button>
-      </div>
+      </div> */}
+       <ItemCountCart juego={juego} initial={cantidad} stock={stock} id={id} />
     </Card>
   );
 };
