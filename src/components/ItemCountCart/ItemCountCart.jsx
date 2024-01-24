@@ -16,14 +16,14 @@ const ItemCountCart = ({ stock, initial, juego, id }) => {
   const increment = () => {
     if (quantity < stock) {
       setQuantity(prevQuantity => prevQuantity + 1);
-      addCart(juego, quantity + 1);
+      addCart(juego, + 1);
     }
   };
   
   const decrement = () => {
     if (quantity > 1) {
       setQuantity(prevQuantity => prevQuantity - 1);
-      addCart(juego, quantity - 1);
+      addCart(juego,  - 1);
     }
   };
   return (
